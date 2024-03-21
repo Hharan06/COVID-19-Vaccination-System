@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients Information</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: url('https://cloudfront-us-east-2.images.arcpublishing.com/reuters/RBA4AXZ76BKADNLQK7R7BA6Q2E.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        #welcome-message {
+            color: #008080;
+            margin-bottom: 20px;
+        }
+
+        #update-message {
+            margin-bottom: 20px;
+        }
+
+        #awareness-message {
+            background-color: #ffc107;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        #scroll-notice {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            margin-left: -150px;
+            width: 120px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .patients-info-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #008080;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #008080;
+            color: #fff;
+        }
+
+        /* Add Print-specific styles */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #patients-table,
+            #patients-table * {
+                visibility: visible;
+            }
+
+            #patients-table {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="patients-info-container">
+        <p id="welcome-message">Welcome to our COVID-19 Vaccination Program!</p>
+        <p id="update-message">This is the recent update of your vaccine dose from your healthcare.</p>
+
+        <div id="awareness-message">
+            <p><strong>COVID-19 Vaccination Awareness:</strong></p>
+            <p>Get vaccinated to protect yourself and others. Vaccination is a key step in ending the COVID-19 pandemic.</p>
+        </div>
+
+        <p id="scroll-notice">COVID-19 Vaccination</p>
+
+        <table id="patients-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Aadhar</th>
+                    <th>Phone</th>
+                    <th>Dose</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop through patient data and display each row -->
+                {% for patient in patients %}
+                <tr>
+                    <td>{{ patient.2 }}</td>
+                    <td>{{ patient.3 }}</td>
+                    <td>{{ patient.4 }}</td>
+                    <td>{{ patient.5 }}</td>
+                    <td>{{ patient.6 }}</td>
+                    <td>{{ patient.7 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="button" onclick="printTable()">Print</button>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function printTable() {
+            window.print();
+        }
+    </script>
+</body>
+
+</html>

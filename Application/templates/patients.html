@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Healthcare Provider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: url('https://media.cnn.com/api/v1/images/stellar/prod/230831162545-04-cnn-news-quiz-083123.jpg?c=16x9&q=h_720,w_1280,c_fill') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .choose-provider-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity:10;
+        }
+
+        h1 {
+            color: #008080;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #008080;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #008080;
+            color: #fff;
+        }
+
+        .register-button {
+            background-color: #008080;
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .register-button:hover {
+            background-color: #006666;
+        }
+    </style>
+</head>
+<body>
+    <div class="choose-provider-container">
+        <h1>Choose Healthcare Provider</h1>
+
+        <form action="register_patient" method="post">
+            {% csrf_token %}
+            <label for="healthcare">Healthcare Name:</label>
+            <input type="text" id="healthcare" name="healthcare" required>
+
+            <label for="patientName">Name:</label>
+            <input type="text" id="patientName" name="patientName" required>
+
+            <label for="patientAge">Age:</label>
+            <input type="number" id="patientAge" name="patientAge" required>
+
+            <label for="patientAddress">Aadhar:</label>
+            <input type="text" id="patientAddress" name="patientAddress" required>
+
+            <label for="patientPhone">Phone:</label>
+            <input type="tel" id="patientPhone" name="patientPhone" required>
+
+            <label for="vaccine_id">Select Vaccine ID:</label>
+            <input type="text" id="vaccine_id" name="vaccine_id" required>
+
+            <label for="patientDose">Dose:</label>
+            <input type="number" id="patientDose" name="patientDose" required>
+
+            <label for="patientDate">Select Date:</label>
+            <input type="text" id="patientDate" name="patientDate" required>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name of Healthcentre</th>
+                        <th>Type</th>
+                        <th>Vaccine_ID</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Register</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop through vaccine data and display each row -->
+                    {% for vaccine in vaccines %}
+                        <tr>
+                            <td>{{ vaccine.0 }}</td>
+                            <td>{{ vaccine.2 }}</td>
+                            <td>{{ vaccine.1 }}</td>
+                            <td>{{ vaccine.4 }}</td>
+                            <td>{{ vaccine.5 }}</td>
+                            <td><button type="submit" class="register-button" onclick="showMessage()">Register</button></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+    <script>
+        function showMessage() {
+            alert("Registered successfully!");
+        }
+    </script>
+</body>
+</html>

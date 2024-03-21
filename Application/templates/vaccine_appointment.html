@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Provider Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: url('https://media.cnn.com/api/v1/images/stellar/prod/230831162545-04-cnn-news-quiz-083123.jpg?c=16x9&q=h_720,w_1280,c_fill') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .dashboard-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0.9;
+        }
+
+        h1 {
+            color: #008080;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #calendar {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #008080;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form action="vaccine" method="post">
+        {% csrf_token %}
+        <div class="container">
+            <div class="dashboard-container">
+                <h1>Healthcare Provider Dashboard</h1>
+
+                <div class="form-group">
+                    <label for="name">Healthcare Name:</label>
+                    <input type="text" class="form-control" name="name" id="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="id">Vaccine ID:</label>
+                    <input type="text" class="form-control" name="id" id="id" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="vaccineType">Select Vaccine Type:</label>
+                    <select class="form-control" id="vaccineType" name="vaccineType" required>
+                        <option value="covaxin">COVAXIN</option>
+                        <option value="covishield">COVISHIELD</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="availableDoses">Available Vaccine Doses:</label>
+                    <input type="number" class="form-control" id="availableDoses" name="availableDoses" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="startDate">Select Start Date:</label>
+                    <input type="date" class="form-control" id="startDate" name="startDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="endDate">Select End Date:</label>
+                    <input type="date" class="form-control" id="endDate" name="endDate" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

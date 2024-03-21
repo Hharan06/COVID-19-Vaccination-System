@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://media.cnn.com/api/v1/images/stellar/prod/230831162545-04-cnn-news-quiz-083123.jpg?c=16x9&q=h_720,w_1280,c_fill');
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px); /* Adjust the blur level as needed */
+    z-index: -1;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.9); /* Adjust the alpha value as needed */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Your existing styles remain unchanged */
+
+h1 {
+    color: #008080;
+}
+
+p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    color: #008080;
+}
+
+button {
+    background-color: #008080;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #008080;
+    color: white;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Welcome to COVID-19 Vaccination System</h1>
+        <p>Welcome to our Covid-19 Vaccination Program, a comprehensive initiative designed to combat 
+            the spread of the virus and protect our community. At the heart of our program is a commitment 
+            to your safety and well-being. We prioritize the delivery of safe and effective vaccines, starting 
+            from the rigorous development and approval process to the seamless administration at our vaccination centers. 
+            With a focus on accessibility, our program spans distribution logistics, educational campaigns, and easy-to-use 
+            registration systems. We collaborate with healthcare providers to ensure a smooth vaccination process, 
+            guiding individuals through registration, scheduling, and the administration of doses. Our goal is to 
+            achieve widespread vaccination coverage, contributing to the collective effort to overcome the challenges 
+            posed by the pandemic. Join us in this vital endeavor, and let's work together towards a healthier and 
+            safer future for all.
+        </p>
+
+        <label>For Healthcare Providers</label>
+        <button class="btn btn-primary"><a href="login">LOGIN</a></button>
+        <button class="btn btn-success"><a href="enroll">ENROLL</a></button>
+
+        <label>For Public Registration</label>
+        <button class="btn btn-info"><a href="register">REGISTER</a></button>
+        <button class="btn btn-warning"><a href="download_certificate">Download Certificates</a></button>
+    </div>
+    
+    <div class="container mt-5">
+        <h1>Overall Report</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Total Doses</th>
+                    <th>Dose 1</th>
+                    <th>Dose 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in overall %}
+                <tr>
+                    <td>{{data.0}}</td>
+                    <td>{{data.1}}</td>
+                    <td>{{data.2}}</td>
+                    <td>{{data.3}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
